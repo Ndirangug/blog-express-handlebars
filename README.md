@@ -1,5 +1,6 @@
 # Blog-express-handlebars
 Blog with Express Js and Express Handlebars
+<p>This is an demo Blog, which is made using Express Js and Express Handlebars. For installation and setting up of Express Js and Express Handlebars project refer below step.</p>
 
 <h3>Step 1:  Install Express Js</h3>
 <p><strong>Note :-</strong> Make sure you have <a href="https://nodejs.org/en/">Node.js</a> installed.</p>
@@ -24,7 +25,7 @@ Blog with Express Js and Express Handlebars
 <p>Open project folder into <a href="https://code.visualstudio.com/download">VS Codes</a></p>
 <p>Assuming you have select index.js as Entry Point, now create index.js file.</p>
 
-<p>Now create Routes folder, and in that create blog.js file</p>
+<p>Now create Routes folder, and in that create route.js file</p>
 
 <h3>Step 3:  Install Nodemon</h3>
 <p>nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected. Now use below command to install nodemon in your project directory.</p>
@@ -36,7 +37,7 @@ Blog with Express Js and Express Handlebars
     $ nodemon index.js
 
 <h3>Step 4:  Initialize Express Handlebars</h3>
-<p>checkout <a href="https://github.com/ericf/express-handlebars">Express Handlebar Git repository</a> or use below commands.</p>
+<p>Checkout <a href="https://github.com/ericf/express-handlebars">Express Handlebar Git repository</a> or use below commands.</p>
 
 <p>Install express handlebars using below command</p>
         
@@ -44,7 +45,7 @@ Blog with Express Js and Express Handlebars
 
 <p>Now create views folder in application directory, and inside it create layouts folder. The directory structure will look as follows.</p>
       
-    .
+      .
       ├── index.js
           └── views
               ├── home.handlebars
