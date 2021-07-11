@@ -1,0 +1,24 @@
+{{!-- Title --}}
+<script> document.title = 'Blogs' </script>
+
+{{!-- Body --}}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col">
+            <h1 class="text-center">Latest Blogs</h1>
+        </div>
+    </div>
+    <div class="row mt-5">
+        {{#each blogs}}
+        <div class="col-md-4 mt-3">
+            <div class="card" style="height: 100%;">
+                <div class="card-body" style="background-color: #f6f6f6;">
+                    <a href="/blogpost/{{this.slug}}"><h4>{{this.title}}</h3></a>
+                    <p>Published on: {{this.date}}</p>
+                    <p>By: <i>{{this.author}}</i></p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
