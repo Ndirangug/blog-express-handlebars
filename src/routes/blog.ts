@@ -38,10 +38,10 @@ router.get("/blogpost/:slug", async (req, res) => {
   //res.sendFile(path.join(__dirname, "../templates/blogpage.html"));
 
   res.render("blogPage", {
-    title: myBlog[0].title,
-    content: myBlog[0].content,
-    date: myBlog[0].date,
-    author: myBlog[0].author,
+    title: myBlog.title,
+    content: myBlogcontent,
+    date: myBlog.date,
+    author: myBlog.author,
   });
 });
 
