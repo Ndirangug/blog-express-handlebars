@@ -16,7 +16,9 @@ router.get("/blog", (req, res) => {
   //   res.sendFile(path.join(__dirname, "../templates/blogHome.html"));
 
   res.render("blogHome", {
-    blogs: blogs,
+    blogs: blogs.sort((a, b) => {
+      return new Date(b.date) - new Date(a.date);
+     }),
   });
 });
 
@@ -35,6 +37,11 @@ router.get("/blogpost/:slug", (req, res) => {
     date: myBlog[0].date,
     author: myBlog[0].author,
   });
+});
+
+router.post("/blog/", (req, res) => {
+  blogs.push(req.body);
+  res.status(200).json({ status: "accepted" }); //send a response
 });
 
 module.exports = router;

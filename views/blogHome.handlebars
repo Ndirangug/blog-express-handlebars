@@ -2,12 +2,69 @@
 <script> document.title = 'Blogs' </script>
 
 {{!-- Body --}}
+
+ {{!-- <div>
+      <form>
+        <input name="title" type="text" />
+        <input name="slug" type="text" />
+        <input name="author" type="text" />
+        <input name="date" type="date" />
+        <textarea name="content" rows="6" autocomplete="true"></textarea>
+      </form>
+    </div> --}}
+
+
 <div class="container">
     <div class="row mt-5">
         <div class="col">
             <h1 class="text-center">Latest Blogs</h1>
         </div>
     </div>
+
+    <div class="new-blog-post-modal">
+        <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#newPost">
+        New Blog Post
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="newPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                 <form>
+                    <div class="form-group">
+                        <label for="title" class="col-form-label">Title:</label>
+                        <input type="text" class="form-control" name="title" id="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="slug" class="col-form-label">Slug</label>
+                        <input type="text" class="form-control" name="slug" id="slug">
+                    </div>
+                    <div class="form-group">
+                        <label for="author" class="col-form-label">Author:</label>
+                        <input type="text" class="form-control" id="author">
+                    </div>
+                    <div class="form-group">
+                        <label for="content" class="col-form-label">Content:</label>
+                        <textarea class="form-control" id="content"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button onclick="submitForm()" type="button" id="savebtn" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
     <div class="row mt-5">
         {{#each blogs}}
         <div class="col-md-4 mt-3">
@@ -22,3 +79,40 @@
         {{/each}}
     </div>
 </div>
+
+<script>
+   
+    async function submitForm() {
+        document.getElementById('savebtn').innerHTML = 'Saving...';
+        //const axios = require('axios').default;
+
+        var title = document.getElementById('title').value;
+        var slug = document.getElementById('slug').value;
+        var author = document.getElementById('author').value;
+        var date = new Intl.DateTimeFormat('en-US', {dateStyle: "medium", timeStyle:"short"}).format(new Date());
+        var content = document.getElementById('content').value;
+
+        var data = {title,slug,author,date,content}
+        console.log("sending data", data)
+
+        axios.post('/blog', data)
+        .then(function (response) {
+            console.log(response);
+            document.getElementById('savebtn').innerHTML = 'Saved Successfully';
+            document.getElementById('savebtn').classList.add('btn-success');
+
+            setTimeout(function(){
+                location.reload();
+            }, 2000);
+
+        })
+        .catch(function (error) {
+            console.log(error);
+            document.getElementById('savebtn').innerHTML = 'Saved Successfully';
+            document.getElementById('savebtn').classList.add('btn-error');
+        });
+
+        
+        }
+  
+</script>

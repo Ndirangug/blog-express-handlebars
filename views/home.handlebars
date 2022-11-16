@@ -1,106 +1,21 @@
-{{!-- Title --}}
+{{! Title }}
 <script> document.title = 'Home' </script>
 
-{{!-- Style --}}
+{{! Style }}
 <style>
-    p{
-        font-size: larger;
-    }
+  p{ font-size: larger; }
 </style>
 
-
-{{!-- Body --}}
+{{! Body }}
 <div class="container">
-    <div class="row mt-5">
-        <div class="col">
-            <h1 class="text-center">Blog Using Express Js and Express HandleBars</h1>
-        </div>
+  <div class="row mt-5">
+    <div class="col">
+      <h1 class="text-center">Blog Using Express Js and Express HandleBars</h1>
     </div>
+  </div>
 
-    <div class="content mt-5">
-        <p>This is an demo Blog, which is made using Express Js and Express Handlebars. For installation and setting up of Express Js and Express Handlebars project refer below step.</p>
-        <br>
-        <p>Get code on github : <a href="https://github.com/vasunaik1999/Blog-express-handlebars">vasunaik1999/Blog-express-handlebars</a></p>
-        <br>
-        <h3>Step 1:  Install Express Js</h3>
-        <p><strong>Note :-</strong> Make sure you have <a href="https://nodejs.org/en/">Node.js</a> installed.</p>
-        <p>Go to <a href="https://expressjs.com/">Express Js</a> Website to install Express Js or use below commands to setup Express Js Project</p>
-        
-        <p>Create an empty folder for your application</p>
-        <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">$ mkdir blog <br>$ <span class="hljs-built_in" style="color: rgb(170, 87, 60);">cd</span> blog</pre>
-
-        <p>Use the npm init command to create a package.json file for your application.</p>
-        <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">$ npm init</pre>
-
-        <p>This command prompts you for a number of things, such as the name and version of your application. For now, you can simply hit Enter to accept the defaults for most of them.
-            For Entry Point you can stick with default index.js or create with any name eg.: app.js</p>
-
-        <p>Now install Express in the myapp directory and save it in the dependencies list. For example:</p>
-        <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">$ npm install express --save</pre>
-
-        <h3>Step 2:  Creating Project Files</h3>
-        <p>Open project folder into <a href="https://code.visualstudio.com/download">VS Codes</a></p>
-        <p>Assuming you have select index.js as Entry Point, now create index.js file.</p>
-
-        <p>Now create Routes folder, and in that create blog.js file</p>
-
-        <h3>Step 3:  Install Nodemon</h3>
-        <p>nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected. Now use below command to install nodemon in your project directory.</p>
-        <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">$ npm install --save-dev nodemon</pre>
-
-        <p>Now use below command to run your application using nodemon</p>
-        <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">$ nodemon index.js</pre>
-
-        <h3>Step 4:  Initialize Express Handlebars</h3>
-        <p>checkout <a href="https://github.com/ericf/express-handlebars">Express Handlebar Git repository</a> or use below commands.</p>
-
-        <p>Install express handlebars using below command</p>
-        <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">$ npm install express-handlebars</pre>
-
-        <p>Now create views folder in application directory, and inside it create layouts folder. The directory structure will look as follows.</p>
-        <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">.
-        <br>├── index.js
-        <br>    └── views
-        <br>        ├── home.handlebars
-        <br>        └── layouts
-        <br>            └── main.handlebars
-
-        <br>2 directories, 3 files</pre>
-
-        <p>Create .handlebars pages inside views folders eg.: home.handlebars</p>
-        <p>Create main.handlebars file inside layouts folder, main file will look like</p>
-        <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;"><span class="hljs-meta" style="color: rgb(170, 87, 60);">&lt;!DOCTYPE html&gt;</span>
-<span class="hljs-tag" style="color: rgb(190, 70, 120);">&lt;<span class="hljs-name" style="color: rgb(190, 70, 120);">html</span>&gt;</span>
-<span class="hljs-tag" style="color: rgb(190, 70, 120);">&lt;<span class="hljs-name" style="color: rgb(190, 70, 120);">head</span>&gt;</span>
-    <span class="hljs-tag" style="color: rgb(190, 70, 120);">&lt;<span class="hljs-name" style="color: rgb(190, 70, 120);">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string" style="color: rgb(42, 146, 146);">"utf-8"</span>&gt;</span>
-    <span class="hljs-tag" style="color: rgb(190, 70, 120);">&lt;<span class="hljs-name" style="color: rgb(190, 70, 120);">title</span>&gt;</span>Example App<span class="hljs-tag" style="color: rgb(190, 70, 120);">&lt;/<span class="hljs-name" style="color: rgb(190, 70, 120);">title</span>&gt;</span>
-<span class="hljs-tag" style="color: rgb(190, 70, 120);">&lt;/<span class="hljs-name" style="color: rgb(190, 70, 120);">head</span>&gt;</span>
-<span class="hljs-tag" style="color: rgb(190, 70, 120);">&lt;<span class="hljs-name" style="color: rgb(190, 70, 120);">body</span>&gt;</span>
-
-    { body } 
-
-<span class="hljs-tag" style="color: rgb(190, 70, 120);">&lt;/<span class="hljs-name" style="color: rgb(190, 70, 120);">body</span>&gt;</span>
-<span class="hljs-tag" style="color: rgb(190, 70, 120);">&lt;/<span class="hljs-name" style="color: rgb(190, 70, 120);">html</span>&gt;</span></pre>
-    <p><strong>Note :-</strong> write body tag inside triple curly brackets</p>
-
-    <p>Inside index.js file, copy and paste below code</p>
-    <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(25, 23, 28); color: rgb(139, 135, 146); padding: 0.5em;">const express = require(<span class="hljs-string" style="color: rgb(42, 146, 146);">"express"</span>);
-
-var exphbs = require(<span class="hljs-string" style="color: rgb(42, 146, 146);">"express-handlebars"</span>);
-
-const path = require(<span class="hljs-string" style="color: rgb(42, 146, 146);">"path"</span>);
-const app = express();
-const port = 3000;
-
-app.engine(<span class="hljs-string" style="color: rgb(42, 146, 146);">"handlebars"</span>, exphbs());
-app.set(<span class="hljs-string" style="color: rgb(42, 146, 146);">"view engine"</span>, <span class="hljs-string" style="color: rgb(42, 146, 146);">"handlebars"</span>);
-
-app.use(<span class="hljs-string" style="color: rgb(42, 146, 146);">"/"</span>, require(path.join(__dirname, <span class="hljs-string" style="color: rgb(42, 146, 146);">"routes/blog.js"</span>)));
-
-app.listen(port, () =&gt; {
-  console.log(`App listening at http://localhost:<span class="hljs-variable" style="color: rgb(190, 70, 120);">${port}</span>`);
-});
-</pre>
-
-    </div>
+  <div class="content mt-5">
+    Go to Blogs Page
+    <a href="/blog">Blogs</a>
+  </div>
 </div>
