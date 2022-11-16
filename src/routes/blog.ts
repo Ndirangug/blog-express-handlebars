@@ -39,7 +39,7 @@ router.get("/blogpost/:slug", async (req, res) => {
 
   res.render("blogPage", {
     title: myBlog.title,
-    content: myBlogcontent,
+    content: myBlog.content,
     date: myBlog.date,
     author: myBlog.author,
   });
